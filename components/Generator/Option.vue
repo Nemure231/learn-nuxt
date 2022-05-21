@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Gender, Popularity, Length } from "../data/data"
+import { Gender, Popularity, Length } from "../../data/data"
 
 interface checkOptionState {
   option: string,
@@ -16,10 +16,10 @@ interface OptionProps {
     id: number,
     name: string
   },
-  optionsData: [{
+  optionsData:  [{
     id: number,
     optionId: number,
-    name: `string`
+    name: string
   }],
   currentOptions: {
     gender: Gender,
@@ -55,7 +55,7 @@ let changeButton = (eve: string) => {
 </script>
 
 <template>
-  <div text-center>
+  <div text-center font-sans>
     <span v-text="optionName.name" font-semibold>
     </span>
     <div mt-2 flex justify-center flex-row items-center flex-wrap gap-4>
