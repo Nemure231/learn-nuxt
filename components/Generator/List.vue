@@ -137,6 +137,16 @@ let removeName = (index: number) => {
 }
 </script>
 <template>
+  <!-- This is how we can chang the meta data in head, with using HTML, HEAD component
+    automaticly import from Nuxt -->
+    <Html>
+        <Head>
+            <Title>
+                Generator
+            </Title>
+        </Head>
+    </Html>
+
     <div flex justify-center items-center h-auto my-12>
         <div flex-1 container space-y-10>
             <h1 text-center>Name Generator</h1>

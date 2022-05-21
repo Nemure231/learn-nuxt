@@ -9,6 +9,15 @@ was connected to 404 page if we dont have any page
  
 <template>
 <div>
+  <!-- This is how we can chang the meta data in head, with using HTML, HEAD component
+    automaticly import from Nuxt -->
+    <Html>
+        <Head>
+            <Title>
+                Leaning Nuxt
+            </Title>
+        </Head>
+    </Html>
 
 
 </div>

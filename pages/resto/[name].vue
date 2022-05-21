@@ -18,12 +18,19 @@ const name = route.params.name
 
 // this function is going to find the resto data 
 //is equal to the name of resto in route
-const resto = restos.find(r => r.name === name)
+const resto = restos.find(r => r.name === name);
+
+// We can also change the head using a composible nuxt called useHead to describe the head
+useHead({
+    title: resto ? `Resto - ${name}` : `Resto - 404`
+})
 
 </script>
 
 <template>
     <div>
+          <!-- This is how we can chang the meta data in head, with using HTML, HEAD component
+    automaticly import from Nuxt -->
 
         <div flex justify-center no-wrap items-center h-auto my-14 mx-6>
             <div flex-1 container>
@@ -33,9 +40,9 @@ const resto = restos.find(r => r.name === name)
                     <template v-if="resto">
                         <NuxtLayout name="custom">
                             <template #customAd>
-                            <span text-left text-2xl font-bold text-center v-text="name"></span>
+                                <span text-left text-2xl font-bold text-center v-text="name"></span>
                                 <img w-80 h-60 object-center object-cover rounded-xl :src="resto.imageUrl" alt="">
-    
+
                                 <div grid grid-cols-3 divide-x-4 divide-green-400 text-center>
                                     <div font-bold text-xl v-text="`Rank: ${resto.rank}`">
                                     </div>
@@ -45,13 +52,20 @@ const resto = restos.find(r => r.name === name)
                                     </div>
                                 </div>
                                 <p text-lg text-justify v-text="resto.content">
-    
+
                                 </p>
                             </template>
                         </NuxtLayout>
                     </template>
                     <template v-else>
-                        resto no found
+                        <NuxtLayout name="error">
+                            <template #header>
+                                <div>resto not found</div>
+                            </template>
+                            <template #redirectEl>
+                                <NuxtLink to="/">Go back</NuxtLink>
+                            </template>
+                        </NuxtLayout>
 
                     </template>
                 </div>
